@@ -5,7 +5,7 @@ import com.yourname.hermesstats.command.HermesCommand;
 import com.yourname.hermesstats.util.ChatRenderer;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
-import themislib.api.DataDomain;
+import hermeslib.api.DataDomain;
 
 import java.util.ArrayList;
 import java.util.List;

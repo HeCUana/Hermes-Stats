@@ -7,10 +7,10 @@ Hermes-Stats 是一个**纯前端展示**的 Fabric 模组，为服务端提供�
 模组本身不采集任何数据、不写数据库、不对外提供 API——它只做三件事：
 
 1. 注册 `/hermes` 命令树；
-2. 调用 **Themis Lib** 的只读接口（`themislib.api.ThemisApi.provider()`）读取统计数据；
+2. 调用 **Hermes Lib** 的只读接口（`hermeslib.api.HermesApi.provider()`）读取统计数据；
 3. 在聊天栏里分页渲染榜单，并给所有条目挂上可点击的下钻按钮。
 
-统计数据的采集、分域（真人 / 假人）与持久化全部由 Themis Lib 负责，Hermes-Stats 是它的展示层。
+统计数据的采集、分域（真人 / 假人）与持久化全部由 Hermes Lib 负责，Hermes-Stats 是它的展示层。
 这样拆分的好处是：采集逻辑升级不会影响展示，展示换皮也不需要动底层数据。
 
 设计上遵循**三级路径**：入口 → 分类 → 指标 → 榜单。27 个指标分成 6 大类，避免玩家面对一长串指标名无从下手；
@@ -37,23 +37,24 @@ Hermes-Stats 是一个**纯前端展示**的 Fabric 模组，为服务端提供�
 - Java **25+**
 - Fabric Loader **0.19.5**
 - Fabric API **0.164.0+26.3**（提供 `fabric-command-api-v2` 与 `fabric-lifecycle-events-v1`）
-- **Themis Lib 1.0.0**（数据来源，必须安装）
-  - 仓库内已附带 `libs/themis-lib-1.0.0.jar`，也可改用 Maven 坐标 `com.github.HeCUana:themis-lib:1.0.0`
+- **Hermes Lib 1.0.0**（数据来源，必须安装）
+  - 安装的模组 ID 是 **`hermes`**（jar 文件名 `hermes-lib-1.0.0.jar`），本模组的 `fabric.mod.json` 依赖的就是它
+  - 仓库内已附带 `libs/hermes-lib-1.0.0.jar`，也可改用 Maven 坐标 `com.hermeslib:hermes-lib:1.0.0`
 
 ### 安装步骤
 
 ```bash
 git clone <repo-url>
-cd Themis-Stats
+cd Hermes-Stats
 
-# 首次构建前：把 Themis Lib 的 jar 放进 libs/（见 libs/README.md）
+# 首次构建前：把 Hermes Lib 的 jar 放进 libs/（见 libs/README.md）
 ./gradlew build
 ```
 
-`libs/themis-lib-1.0.0.jar` 属于第三方构建产物（约 11.7 MB），未纳入版本管理，
+`libs/hermes-lib-1.0.0.jar` 属于第三方构建产物（约 11.7 MB），未纳入版本管理，
 请按 [libs/README.md](libs/README.md) 里的两种方式之一放入。
 
-把 `build/libs/hermes-stats-1.0.0.jar` 放进服务端的 `mods/` 目录，同时确保已安装 Themis Lib 与 Fabric API，重启服务端即可。
+把 `build/libs/hermes-stats-1.0.0.jar` 放进服务端的 `mods/` 目录，同时确保已安装 Hermes Lib 与 Fabric API，重启服务端即可。
 
 ### 命令一览
 
@@ -105,5 +106,5 @@ cd Themis-Stats
 - **文案前缀**：`[Hermes-Stats]` 只加在失败消息上——标题本身已含 `✦ Hermes-Stats ✦` 标记，
   再叠一层会变成重复的 `[Hermes-Stats] ✦ Hermes-Stats ✦ ...`。
 
-> ⚠️ 早前设计文档中提到「29 个指标」，Themis Lib 1.0.0 的 `Metric` 枚举实际为 **27 个**，
+> ⚠️ 早前设计文档中提到「29 个指标」，Hermes Lib 1.0.0 的 `Metric` 枚举实际为 **27 个**，
 > 上表已按真实枚举归类，27 个全部命中、无一遗漏。

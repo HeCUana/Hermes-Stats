@@ -1,6 +1,6 @@
 package com.yourname.hermesstats.util;
 
-import themislib.api.Metric;
+import hermeslib.api.Metric;
 
 import java.util.EnumMap;
 import java.util.Locale;
@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 指标的中文名与数值格式化。
  *
- * <p>单位口径（与 Themis Lib 的数据库约定一致）：</p>
+ * <p>单位口径（与 Hermes Lib 的数据库约定一致）：</p>
  * <ul>
  *   <li>{@code playtime_ticks} —— 20 tick = 1 秒，换算成「时 分 秒」；</li>
  *   <li>{@code playtime_seconds} —— 已是秒，换算成「时 分 秒」；</li>

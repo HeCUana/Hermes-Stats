@@ -7,10 +7,10 @@ import com.yourname.hermesstats.util.ChatRenderer;
 import com.yourname.hermesstats.util.MetricDisplay;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.level.ServerPlayer;
-import themislib.api.DataDomain;
-import themislib.api.Metric;
-import themislib.api.RankingDataProvider;
-import themislib.api.ThemisApi;
+import hermeslib.api.DataDomain;
+import hermeslib.api.HermesApi;
+import hermeslib.api.Metric;
+import hermeslib.api.RankingDataProvider;
 
 import java.util.List;
 import java.util.Map;
@@ -42,10 +42,10 @@ public final class MeExecutor
      */
     public static int executeOverview(CommandSourceStack source)
     {
-        RankingDataProvider provider = ThemisApi.provider();
+        RankingDataProvider provider = HermesApi.provider();
         if (provider == null)
         {
-            ChatRenderer.sendError(source, "Themis Lib 数据尚未就绪，请稍后再试");
+            ChatRenderer.sendError(source, "Hermes Lib 数据尚未就绪，请稍后再试");
             return 0;
         }
 
@@ -106,10 +106,10 @@ public final class MeExecutor
             return 0;
         }
 
-        RankingDataProvider provider = ThemisApi.provider();
+        RankingDataProvider provider = HermesApi.provider();
         if (provider == null)
         {
-            ChatRenderer.sendError(source, "Themis Lib 数据尚未就绪，请稍后再试");
+            ChatRenderer.sendError(source, "Hermes Lib 数据尚未就绪，请稍后再试");
             return 0;
         }
 

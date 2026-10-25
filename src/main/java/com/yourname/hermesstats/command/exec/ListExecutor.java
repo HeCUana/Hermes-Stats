@@ -7,8 +7,8 @@ import com.yourname.hermesstats.util.MetricDisplay;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import themislib.api.DataDomain;
-import themislib.api.Metric;
+import hermeslib.api.DataDomain;
+import hermeslib.api.Metric;
 
 import java.util.List;
 import java.util.Optional;

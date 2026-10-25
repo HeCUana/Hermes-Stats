@@ -1,8 +1,8 @@
 package com.yourname.hermesstats.cache;
 
-import themislib.api.DataDomain;
-import themislib.api.Metric;
-import themislib.api.RankingDataProvider;
+import hermeslib.api.DataDomain;
+import hermeslib.api.Metric;
+import hermeslib.api.RankingDataProvider;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;

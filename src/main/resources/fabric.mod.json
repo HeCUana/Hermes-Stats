@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Hermes-Stats",
-  "description": "纯前端展示模组：注册 /hermes 命令树 → 调用 Themis Lib 读取统计数据 → 在聊天栏分页渲染排行榜。不采集数据、不写数据库、不对外提供 API。",
+  "description": "纯前端展示模组：注册 /hermes 命令树 → 调用 Hermes Lib 读取统计数据 → 在聊天栏分页渲染排行榜。不采集数据、不写数据库、不对外提供 API。",
   "authors": [
     "Hermes"
   ],
@@ -12,7 +12,7 @@
 
   "license": "MIT",
 
-  "environment": "*",
+  "environment": "server",
   "entrypoints": {
     "main": [
       "com.yourname.hermesstats.HermesStatsMod::onInitialize"
@@ -24,6 +24,6 @@
     "minecraft": "~26.3",
     "java": ">=25",
     "fabric-api": "*",
-    "themis": "*"
+    "hermes": "*"
   }
 }

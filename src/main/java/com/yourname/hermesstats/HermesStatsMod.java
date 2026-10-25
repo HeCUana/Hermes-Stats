@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
  * <p>本模组只做三件事：</p>
  * <ol>
  *   <li>注册 {@code /hermes} 命令树；</li>
- *   <li>调用 Themis Lib 的只读 API 取数据；</li>
+ *   <li>调用 Hermes Lib 的只读 API 取数据；</li>
  *   <li>在聊天栏分页渲染。</li>
  * </ol>
  *

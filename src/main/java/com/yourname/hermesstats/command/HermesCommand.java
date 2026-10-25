@@ -9,7 +9,7 @@ import com.yourname.hermesstats.command.exec.MeExecutor;
 import com.yourname.hermesstats.command.exec.TopExecutor;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import themislib.api.DataDomain;
+import hermeslib.api.DataDomain;
 
 /**
  * {@code /hermes} 命令树。

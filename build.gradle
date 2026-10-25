@@ -23,10 +23,10 @@ dependencies {
     //   fabric-lifecycle-events-v1 -> ServerLifecycleEvents（关服时清空 TopCache）
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 
-    // Themis Lib：只读 API 依赖（themislib.api.*）。
+    // Hermes Lib：只读 API 依赖（hermeslib.api.*）。
     // 本仓库使用本地 jar（libs/ 目录下），换成 Maven 坐标即可：
-    //   implementation "com.github.HeCUana:themis-lib:1.0.0"
-    implementation files("libs/themis-lib-1.0.0.jar")
+    //   implementation "com.hermeslib:hermes-lib:1.0.0"
+    implementation files("libs/hermes-lib-1.0.0.jar")
 }
 
 processResources {

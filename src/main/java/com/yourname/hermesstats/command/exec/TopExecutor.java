@@ -10,10 +10,10 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
-import themislib.api.DataDomain;
-import themislib.api.Metric;
-import themislib.api.RankingDataProvider;
-import themislib.api.ThemisApi;
+import hermeslib.api.DataDomain;
+import hermeslib.api.HermesApi;
+import hermeslib.api.Metric;
+import hermeslib.api.RankingDataProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,10 +86,10 @@ public final class TopExecutor
             return 0;
         }
 
-        RankingDataProvider provider = ThemisApi.provider();
+        RankingDataProvider provider = HermesApi.provider();
         if (provider == null)
         {
-            ChatRenderer.sendError(source, "Themis Lib 数据尚未就绪，请稍后再试");
+            ChatRenderer.sendError(source, "Hermes Lib 数据尚未就绪，请稍后再试");
             return 0;
         }
 

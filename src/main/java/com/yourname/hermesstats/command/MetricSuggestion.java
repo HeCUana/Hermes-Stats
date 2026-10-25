@@ -4,7 +4,7 @@ import com.mojang.brigadier.suggestion.SuggestionProvider;
 import com.yourname.hermesstats.util.MetricDisplay;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
-import themislib.api.Metric;
+import hermeslib.api.Metric;
 
 import java.util.Locale;
 

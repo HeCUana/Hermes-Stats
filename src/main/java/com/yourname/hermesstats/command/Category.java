@@ -1,6 +1,6 @@
 package com.yourname.hermesstats.command;
 
-import themislib.api.Metric;
+import hermeslib.api.Metric;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +15,7 @@ import java.util.Optional;
  * 指标分类。
  *
  * <p>29（实际 27）个指标按语义分成 6 类，降低玩家在聊天栏里的认知负担。
- * 归类规则基于 {@link Metric#dbName()} 的前缀 / 关键字，并且在 Themis Lib
+ * 归类规则基于 {@link Metric#dbName()} 的前缀 / 关键字，并且在 Hermes Lib
  * 以后新增指标时自动落到 {@link #OTHER}，不会丢指标、也不会让分类列表为空。</p>
  *
  * <p>每个分类持有一份 {@link Metric} 列表（静态初始化时按枚举顺序填充）。</p>
