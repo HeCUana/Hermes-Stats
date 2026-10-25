@@ -38,7 +38,7 @@ Hermes-Stats 是一个**纯前端展示**的 Fabric 模组，为服务端提供�
 - Fabric Loader **0.19.5**
 - Fabric API **0.164.0+26.3**（提供 `fabric-command-api-v2` 与 `fabric-lifecycle-events-v1`）
 - **Hermes Lib 1.0.0**（数据来源，必须安装）
-  - 安装的模组 ID 是 **`hermes`**（jar 文件名 `hermes-lib-1.0.0.jar`），本模组的 `fabric.mod.json` 依赖的就是它
+  - 安装的模组 ID 是 **`hermes_lib`**（jar 文件名 `hermes-lib-1.0.0.jar`），本模组的 `fabric.mod.json` 依赖的就是它
   - 仓库内已附带 `libs/hermes-lib-1.0.0.jar`，也可改用 Maven 坐标 `com.hermeslib:hermes-lib:1.0.0`
 
 ### 安装步骤
@@ -67,10 +67,15 @@ cd Hermes-Stats
 /hermes top <metric> <page>      榜单 第 N 页
 /hermes me                       我的总览（只调一次 getAll，不做排名扫描）
 /hermes me <metric>              我的单项排名
+/hermes import                   导入原版统计数据（仅 OP，权限等级 2）
 /hermes fake                     假人域入口
 /hermes fake list [<category>]   假人域分类目录 / 指标列表
 /hermes fake top [<metric>] [<page>]  假人域榜单
 ```
+
+> `/hermes import` 只对 OP 开放（非 OP 既看不到补全也执行不了），它会扫描
+> `<世界>/stats/<UUID>.json`，把原版累计统计按映射表**覆盖**写进 Hermes 指标
+> （覆盖而非累加，所以重复执行幂等、不会翻倍）。导入在后台线程执行，完成后切回主线程反馈结果。
 
 `category` 可选值：`activity` `gather` `combat` `explore` `social` `other`；
 `metric` 使用数据库取值（如 `blocks_mined`），枚举名（`BLOCKS_MINED`）同样认，大小写不敏感。

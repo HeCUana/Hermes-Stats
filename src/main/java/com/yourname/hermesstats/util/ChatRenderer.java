@@ -32,8 +32,8 @@ public final class ChatRenderer
     public static final ChatFormatting BODY_COLOR = ChatFormatting.GRAY;
     /** 「自己」高亮颜色（金色）。 */
     public static final ChatFormatting SELF_COLOR = ChatFormatting.GOLD;
-    /** 按钮颜色。 */
-    public static final ChatFormatting BUTTON_COLOR = ChatFormatting.AQUA;
+    /** 按钮颜色（绿色）。 */
+    public static final ChatFormatting BUTTON_COLOR = ChatFormatting.GREEN;
     /** 失败消息颜色。 */
     public static final ChatFormatting ERROR_COLOR = ChatFormatting.RED;
 

@@ -4,6 +4,7 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.yourname.hermesstats.command.exec.EntryExecutor;
+import com.yourname.hermesstats.command.exec.ImportExecutor;
 import com.yourname.hermesstats.command.exec.ListExecutor;
 import com.yourname.hermesstats.command.exec.MeExecutor;
 import com.yourname.hermesstats.command.exec.TopExecutor;
@@ -58,6 +59,10 @@ public final class HermesCommand
                 .then(buildListNode(DataDomain.REAL))
                 .then(buildTopNode(DataDomain.REAL))
                 .then(buildMeNode())
+                // 导入原版统计：仅 OP（权限等级 2 / GAMEMASTERS）可见可执行
+                .then(Commands.literal("import")
+                        .requires(source -> Commands.LEVEL_GAMEMASTERS.check(source.permissions()))
+                        .executes(context -> ImportExecutor.execute(context.getSource())))
                 // 假人子树：复用同一套 list / top 构建器
                 .then(Commands.literal("fake")
                         .executes(context -> EntryExecutor.execute(context.getSource(), DataDomain.FAKE))
