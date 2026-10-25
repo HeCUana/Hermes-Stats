@@ -1,0 +1,68 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'maven-publish'
+}
+
+base {
+    archivesName = project.archives_base_name
+}
+
+version = project.mod_version
+group = project.maven_group
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Fabric API（loom 1.17 已移除 modImplementation，模组依赖一律用 implementation）：
+    //   fabric-command-api-v2      -> CommandRegistrationCallback（注册 /hermes 命令树）
+    //   fabric-lifecycle-events-v1 -> ServerLifecycleEvents（关服时清空 TopCache）
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    // Themis Lib：只读 API 依赖（themislib.api.*）。
+    // 本仓库使用本地 jar（libs/ 目录下），换成 Maven 坐标即可：
+    //   implementation "com.github.HeCUana:themis-lib:1.0.0"
+    implementation files("libs/themis-lib-1.0.0.jar")
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    // Minecraft 26.x 使用 Java 25+
+    it.options.release = 25
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.archives_base_name}" }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = "$projectDir/publish"
+        }
+    }
+}

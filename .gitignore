@@ -1,0 +1,27 @@
+# Gradle
+.gradle/
+build/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+
+# 运行期产物
+run/
+logs/
+*.log
+
+# 编译产物
+*.class
+bin/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+
+# 第三方依赖 jar（Themis Lib 需自行放入，见 libs/README.md）
+libs/*.jar
